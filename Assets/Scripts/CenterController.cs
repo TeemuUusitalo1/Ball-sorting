@@ -9,17 +9,18 @@ public class CenterController : MonoBehaviour
     [SerializeField] private float moveSpeed;
 
     private int pointsIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-        //
         transform.position = Points[pointsIndex].transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Moving "Center" Between Points (L & R) when pressing a or d
+        //From youtube but edited so it is controlled by A & D.
+        //Moving "Center" Between Points (L & R) when pressing A or D.
         if(pointsIndex <= Points.Length -1)
         {
             transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
@@ -39,4 +40,9 @@ public class CenterController : MonoBehaviour
         }
 
     }
+    // Testing
+
+
+
+
 }
