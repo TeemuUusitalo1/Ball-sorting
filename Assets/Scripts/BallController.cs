@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CenterController : MonoBehaviour
+public class BallController : MonoBehaviour
 {
     [SerializeField] Transform[] Points;
 
@@ -19,21 +19,20 @@ public class CenterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Moving "Center" Between Points (L & R) when pressing a or d
-        if(pointsIndex <= Points.Length -1)
+        //Moving "Balls" Between Points when pressing w or s
+        if (pointsIndex <= Points.Length - 1)
         {
             transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
-            if (Input.GetKeyDown(KeyCode.D))
-            {
+
                 if (transform.position == Points[pointsIndex].transform.position)
                 {
-                    pointsIndex = 1;
+                    pointsIndex = +1;
                 }
-            }
-            if (Input.GetKeyDown(KeyCode.A))
+            
+            if (Input.GetKeyDown(KeyCode.S))
             {
-                    pointsIndex = 0;
+                pointsIndex = 0;
             }
 
         }
