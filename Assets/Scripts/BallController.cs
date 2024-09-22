@@ -5,27 +5,96 @@ using UnityEngine.UI;
 
 public class BallController : MonoBehaviour
 {
-    public GameObject destination;
-    [SerializeField] private float moveSpeed;
-   // private int pointsIndex;
-    private Rigidbody rb;
+    public bool moveLeft;
+    CornenrCheck cornenrCheck;
+    SideChange sideChange;
+    public float moveSpeed = 1.0f; // Distance to teleport downwards
+    [SerializeField] private Tag _tagCheck;
+    public CenterSideCheck centerSideCheck;
 
-    public float TurningSpeed = 1f;
-    void Start()
+    public void Start()
     {
-        rb = GetComponent<Rigidbody>();
-    }
-    void Update()
-    {
-        Vector3 lookPos = destination.transform.position - transform.position;
-        lookPos.y = 0;
-        Quaternion rotation = Quaternion.LookRotation(lookPos);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * TurningSpeed);
-
-        rb.velocity = transform.forward * moveSpeed;
 
     }
+    public void Update()
+    {
+        // if (gameObject.HasTag(_tagCheck))
+        // {
+        if (centerSideCheck.GetComponent<CenterSideCheck>().IsLeft == true)
+        {
+            if (gameObject.tag == "Down")
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+                }
+            }
+            if (gameObject.tag == "Left")
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
+                }
+            }
+            if (gameObject.tag == "Up")
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+                }
+            }
+            if (gameObject.tag == "Right")
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position += Vector3.back * Time.deltaTime * moveSpeed;
+                }
+            }
+        }
+        else if (centerSideCheck.GetComponent<CenterSideCheck>().IsLeft == false)
+        {
+            if (gameObject.tag == "Down(R)")
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+                }
+            }
+            if (gameObject.tag == "Left(R)")
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
+                }
+            }
+            if (gameObject.tag == "Up(R)")
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+                }
+            }
+            if (gameObject.tag == "Right(R)")
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    transform.position += Vector3.back * Time.deltaTime * moveSpeed;
+                }
+            }
+        }
+
+
+       // }
+
+    }
+        
+
+
+
+
+
 }
+
 
 
 

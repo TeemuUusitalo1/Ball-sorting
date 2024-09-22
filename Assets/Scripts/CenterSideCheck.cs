@@ -9,7 +9,7 @@ public class CenterSideCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        IsLeft = false;
+
     }
 
     // Update is called once per frame

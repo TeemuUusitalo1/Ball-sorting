@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 8284179679545545056}
   - component: {fileID: 8284179679545545059}
   - component: {fileID: 4559754682633082060}
-  m_Layer: 0
-  m_Name: Ball
-  m_TagString: Left
+  - component: {fileID: 1420001229031132234}
+  m_Layer: 7
+  m_Name: Ball 1
+  m_TagString: Down
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8284179679545545061}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.023, y: 0, z: 3.0500007}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fa003f39e3ab0fe4788671df14945c56, type: 2}
+  - {fileID: 2100000, guid: b020f93ac3ff76448b73edf1638a10b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,12 +124,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8284179679545545061}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae052cf3dbefec949961681be0342551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
+  moveLeft: 0
+  moveSpeed: 20
+  _tagCheck: {fileID: 0}
+  centerSideCheck: {fileID: 0}
 --- !u!64 &4559754682633082060
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -143,3 +147,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8663826527104884681, guid: 28afd878ef5757b438c661544bc0c0d6, type: 3}
+--- !u!114 &1420001229031132234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8284179679545545061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba25fd1c911417499329ca8777b7ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tags:
+  - {fileID: 11400000, guid: e2d130c47ca86944fbe2874215543f7d, type: 2}

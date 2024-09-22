@@ -7,8 +7,7 @@ using TMPro;
 public class StartGame : MonoBehaviour
 {
     // Start is called before the first frame update
-
-
+   public bool timerActive = false;
     // Update is called once per frame
     void Update()
     {
@@ -17,7 +16,12 @@ public class StartGame : MonoBehaviour
 
     public void StartButton()
     {
+        //Load GameScene when pressed
         SceneManager.LoadScene("GameScene");
     }
 
+    public void timerButton()
+    {
+        timerActive = true;
+    }
 }
