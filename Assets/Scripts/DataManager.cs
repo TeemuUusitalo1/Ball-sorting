@@ -9,49 +9,35 @@ public class DataManager : MonoBehaviour
 {
     public GameCheck gameCheck;
     public Timer timer;
-    private string connectionString;
     private IDbConnection dbConnection;
 
     [SerializeField] private TMP_Text textArea;
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        connectionString = "URI=file:YksiloProjekti.db";
-
-        dbConnection = new SqliteConnection(connectionString);
-        dbConnection.Open();
-
-        FetchData();
+        LoadTextIntoTextBox();
     }
 
-    public void FetchData()
+    public void Update()
     {
-        using (IDbCommand dbCmd = dbConnection.CreateCommand())
+
+    }
+    public void LoadTextIntoTextBox()
+    {
+        using var connection = new SqliteConnection("URI=file:BallSorting.db");
+        connection.Open();
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM Timer ORDER BY aika ASC LIMIT 5;";
+
+        using IDataReader reader = command.ExecuteReader();
+        while (reader.Read())
         {
-            dbCmd.CommandText = "SELECT * FROM TulosTaulu ORDER BY pisteet DESC, pelaajan_nimi limit 5;";
-            using (IDataReader reader = dbCmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    string pelaajanNimi = reader.GetString(1);
-                    int pisteet = reader.GetInt32(2);
-
-
-
-                    textArea.text += $"Pelaajan nimi: {pelaajanNimi}, Pisteet: {pisteet}<br>";
-                }
-                
-            }
+            string pelaajanNimi = reader.GetString(1);
+            int pisteet = reader.GetInt32(2);
+            textArea.text += $"Pelaajan nimi: {pelaajanNimi}, Aika: {pisteet} sekunttia<br>";
+            //Debug.Log($"Pelaajan nimi: {pelaajanNimi}, Pisteet: {pisteet}");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
+        reader.Close();
     }
 }
+

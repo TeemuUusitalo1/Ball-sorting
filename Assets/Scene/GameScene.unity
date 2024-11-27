@@ -2062,8 +2062,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.86582947}
+  m_Center: {x: 0, y: 0, z: 0.067085266}
 --- !u!4 &708070169
 Transform:
   m_ObjectHideFlags: 0
@@ -4132,7 +4132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292624555}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.475, y: 0, z: -0.287}
+  m_LocalPosition: {x: 7.475, y: 0, z: -0.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5222,7 +5222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -6898,6 +6898,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3697720552270716866, guid: 4a6ffa4ffeadf594196c1f3588b2a22d, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 7227864541888495694}
     - target: {fileID: 3697720552270716867, guid: 4a6ffa4ffeadf594196c1f3588b2a22d, type: 3}
       propertyPath: m_Name
       value: EndCheck
@@ -6963,6 +6967,10 @@ PrefabInstance:
       propertyPath: startGame
       value: 
       objectReference: {fileID: 759937722723982556, guid: 5676e36bfde75db4786f004e6b2d351d, type: 3}
+    - target: {fileID: 7227864543486467784, guid: 2095f02ced30c1a489afa7c159be6227, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 105659794}
     - target: {fileID: 7227864543486467785, guid: 2095f02ced30c1a489afa7c159be6227, type: 3}
       propertyPath: m_Name
       value: Timer
@@ -7013,3 +7021,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2095f02ced30c1a489afa7c159be6227, type: 3}
+--- !u!114 &7227864541888495694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7227864543486467784, guid: 2095f02ced30c1a489afa7c159be6227, type: 3}
+  m_PrefabInstance: {fileID: 7227864541888495693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081bfc5747d3b534d900e2899988a2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

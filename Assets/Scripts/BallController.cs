@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class BallController : MonoBehaviour
 {
     public bool moveLeft;
-    CornenrCheck cornenrCheck;
-    SideChange sideChange;
     public float moveSpeed = 1.0f; // Distance to teleport downwards
     [SerializeField] private Tag _tagCheck;
     public CenterSideCheck centerSideCheck;
@@ -82,10 +80,6 @@ public class BallController : MonoBehaviour
                 }
             }
         }
-
-
-       // }
-
     }
         
 

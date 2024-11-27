@@ -7,6 +7,7 @@ using Mono.Data.Sqlite;
 public class GameCheck : MonoBehaviour
 {
     public StartGame startGame;
+    public Timer timer;
     public GameObject Red;
     public bool gameOver;
     Animator m_Animator;
@@ -60,7 +61,7 @@ public class GameCheck : MonoBehaviour
     //Loading EndScreen
     public void EndGame()
     {
-
+        timer.GetComponent<Timer>().InsertTime();
         gameOver = true;
         SceneManager.LoadScene("EndScreen");
     }

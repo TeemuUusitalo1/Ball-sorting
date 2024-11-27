@@ -9,6 +9,11 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
    public bool timerActive = false;
     // Update is called once per frame
+
+    private void Start()
+    {
+        timerActive = false;
+    }
     void Update()
     {
         

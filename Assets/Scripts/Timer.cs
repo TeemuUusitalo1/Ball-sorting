@@ -5,61 +5,55 @@ using UnityEngine.UI;
 using TMPro;
 using Mono.Data.Sqlite;
 using System.Data;
+using System;
 
 public class Timer : MonoBehaviour
 {
     public StartGame startGame;
-    public float timeStart;
-    private static Timer _timer;
-    public TextMeshProUGUI textBox;
-    [SerializeField] private float countdownTimer = 0;
-    private IDbConnection dbConnection;
-    private string connectionString;
+    //public GameCheck gameCheck;
 
+    public float elapsedTime;
+    public TextMeshProUGUI timerText;
+    String playTime;
 
     private void Awake()
     {
-        connectionString = "URI=file:YksiloProjekti.db";
+
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-       // textBox.text = timeStart.ToString("F2");
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (startGame.GetComponent<StartGame>().timerActive == true && countdownTimer > 0)
+        if (startGame.GetComponent<StartGame>().timerActive == false)
         {
-            SaveTimeToDatabase();
-        } else if (startGame.GetComponent<StartGame>().timerActive == false) {
-            timeStart += Time.deltaTime;
+            elapsedTime += Time.deltaTime;
         }
 
-        int minutes = Mathf.FloorToInt(startGame.GetComponent<StartGame>().timerActive ? countdownTimer / 60f : timeStart / 60f);
-        int seconds = Mathf.FloorToInt(startGame.GetComponent<StartGame>().timerActive ? countdownTimer - minutes * 60 : timeStart - minutes * 60);
-        textBox.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-       // timeStart += Time.deltaTime;
-      //  textBox.text = timeStart.ToString("F2");
+        timerText.text = elapsedTime.ToString("F0");
+
+
+        // Save elapsed time to database
+
+        playTime = $"INSERT INTO Timer (nimi, aika) VALUES('Creator', {timerText.text});";
+
     }
 
-    private void SaveTimeToDatabase()
+    public void InsertTime()
     {
-        using (IDbConnection dbConnection = new SqliteConnection(connectionString))
+        using (var connection = new SqliteConnection("URI=file:BallSorting.db"))
         {
-            dbConnection.Open();
-            using (var dbCommand = dbConnection.CreateCommand())
-            {
+            connection.Open();
 
-                dbCommand.CommandText = $"INSERT INTO TulosTaulu (pelaajan_nimi, pisteet) VALUES ('Pelaaja1', {timeStart});";
-              //  dbCommand.Parameters.Add(new SqliteParameter("@timeStart", timeStart));
-                dbCommand.ExecuteNonQuery();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = playTime;
+                command.ExecuteNonQuery();
             }
+            connection.Close();
         }
     }
+
 
 }
 

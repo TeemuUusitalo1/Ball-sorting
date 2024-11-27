@@ -6,7 +6,6 @@ public class BallSpawner : MonoBehaviour
 {
 
     [SerializeField] Transform[] Points;
-    private int Spawnpoints;
     public bool Amount;
     private float ObjectsBlue = 0f;
     private float ObjectsRed = 0f;
