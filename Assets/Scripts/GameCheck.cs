@@ -12,13 +12,15 @@ public class GameCheck : MonoBehaviour
     public bool gameOver;
     Animator m_Animator;
     [SerializeField] private Tag _tagCheck;
+    
+    // Counter for the specific objects
+    private int objectCount = 0; 
 
-    private int objectCount = 0; // Counter for the specific objects
-    private const int targetCount = 20; // The target number of objects to end the game
+    // The target number of objects to end the game
+    private const int targetCount = 20; 
 
     void Start()
     {
-        //Get the Animator attached to the GameObject you are intending to animate.
         m_Animator = gameObject.GetComponent<Animator>();
         gameOver = false;
     }
@@ -48,7 +50,7 @@ public class GameCheck : MonoBehaviour
         }
     }
 
-    // Optional: Reset the counter if an object exits the trigger
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.HasTag(_tagCheck))
@@ -58,7 +60,7 @@ public class GameCheck : MonoBehaviour
         }
     }
 
-    //Loading EndScreen
+    //Loading EndScene
     public void EndGame()
     {
         timer.GetComponent<Timer>().InsertTime();

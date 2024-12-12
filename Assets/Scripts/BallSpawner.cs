@@ -9,7 +9,7 @@ public class BallSpawner : MonoBehaviour
     public bool Amount;
     private float ObjectsBlue = 0f;
     private float ObjectsRed = 0f;
-    // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
+    // Reference to the Prefab.
     public GameObject myPrefab;
     public GameObject Prefab2;
     // Start is called before the first frame update

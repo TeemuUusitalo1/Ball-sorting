@@ -35,7 +35,7 @@ public class DataManager : MonoBehaviour
             string pelaajanNimi = reader.GetString(1);
             int pisteet = reader.GetInt32(2);
             textArea.text += $"Pelaajan nimi: {pelaajanNimi}, Aika: {pisteet} sekunttia<br>";
-            //Debug.Log($"Pelaajan nimi: {pelaajanNimi}, Pisteet: {pisteet}");
+
         }
         reader.Close();
     }

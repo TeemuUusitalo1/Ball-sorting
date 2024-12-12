@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class BallController : MonoBehaviour
 {
     public bool moveLeft;
-    public float moveSpeed = 1.0f; // Distance to teleport downwards
+
+    // Distance to teleport downwards
+    public float moveSpeed = 1.0f; 
+    
     [SerializeField] private Tag _tagCheck;
     public CenterSideCheck centerSideCheck;
 
@@ -16,8 +19,6 @@ public class BallController : MonoBehaviour
     }
     public void Update()
     {
-        // if (gameObject.HasTag(_tagCheck))
-        // {
         if (centerSideCheck.GetComponent<CenterSideCheck>().IsLeft == true)
         {
             if (gameObject.tag == "Down")

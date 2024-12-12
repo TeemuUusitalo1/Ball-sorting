@@ -10,17 +10,9 @@ using System;
 public class Timer : MonoBehaviour
 {
     public StartGame startGame;
-    //public GameCheck gameCheck;
-
     public float elapsedTime;
     public TextMeshProUGUI timerText;
     String playTime;
-
-    private void Awake()
-    {
-
-    }
-
 
     // Update is called once per frame
     void Update()
